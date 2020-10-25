@@ -1,15 +1,15 @@
 import React from 'react'
-import './Header.css';
 import { Link } from 'react-router-dom';
-import amazon_logo from '../images/amazon_logo.png';
+import AmazonLogo from '../images/amazon_logo.png';
 import SearchIcon from '@material-ui/icons/Search';
 import BasketIcon from '@material-ui/icons/ShoppingBasket';
+import './Header.css';
 
 function Header() {
     return (
         <nav className="header">
             <Link to="/">
-                <img className="header__logo" src={amazon_logo} alt=""></img>
+                <img className="header__logo" src={AmazonLogo} alt=""></img>
             </Link>
             <div className="header__search">
                 <input type="text" className="header__search-input" />
