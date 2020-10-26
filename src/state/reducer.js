@@ -1,7 +1,8 @@
 import { ACTIONS } from "./actions"
 
 export const initialState = {
-    basket: []
+    basket: [],
+    user: null
 }
 
 const reducer = (state, action) => {
@@ -12,7 +13,10 @@ const reducer = (state, action) => {
                 basket: [...state.basket, action.item]
             };
         case ACTIONS.REMOVE_FROM_BASKET:
-            return { ...state }
+            return {
+                ...state,
+                basket: state.basket.filter(x => x.id != action.id)
+            }
         default:
             return state;
     }
