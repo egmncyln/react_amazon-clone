@@ -4,8 +4,11 @@ import AmazonLogo from '../images/amazon_logo.png';
 import SearchIcon from '@material-ui/icons/Search';
 import BasketIcon from '@material-ui/icons/ShoppingBasket';
 import './Header.css';
+import { useStateValue } from '../state/StateProvider';
 
 function Header() {
+    const [{ basket }] = useStateValue();
+
     return (
         <nav className="header">
             <Link to="/">
@@ -40,7 +43,7 @@ function Header() {
                 <Link to="/checkout" class="header__link">
                     <div className="header__option-basket">
                         <BasketIcon />
-                        <spen className="header__option-second header__option-basket-count">0</spen>
+                        <span className="header__option-second header__option-basket-count">{basket?.length}</span>
                     </div>
                 </Link>
             </div>
