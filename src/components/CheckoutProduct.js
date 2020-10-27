@@ -2,8 +2,10 @@ import React from 'react';
 import { ACTIONS } from '../state/actions';
 import './CheckoutProduct.css';
 import { useStateValue } from '../state/StateProvider';
+import { useHistory } from "react-router-dom";
 
 function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
+    const history = useHistory();
     const [{ basket }, dispatch] = useStateValue();
 
     const removeFromBasket = () => {
