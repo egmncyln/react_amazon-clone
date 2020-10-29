@@ -1,6 +1,6 @@
 # Information
 
-This app a fake amazon clone with shopping cart and login functionality.
+This is a fake amazon clone app with shopping cart and login functionality.
 
 # Technology Stack
 
