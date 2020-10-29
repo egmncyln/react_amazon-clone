@@ -1,0 +1,17 @@
+.calculator {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.calculator > input {
+  width: 92px;
+  text-align: center;
+  border: 1px solid lightgray;
+}
+
+.calculator > button {
+  background-color: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+}

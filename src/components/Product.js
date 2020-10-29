@@ -1,9 +1,10 @@
 import React from 'react';
 import { ACTIONS } from '../state/actions';
 import { useStateValue } from '../state/StateProvider';
+import Calculator from './Calculator';
 import './Product.css';
 
-function Product({ id, title, image, price, rating }) {
+function Product({ id, title, image, price, rating, quantity }) {
     const [state, dispatch] = useStateValue();
 
     const addToBasket = () => {
@@ -14,31 +15,49 @@ function Product({ id, title, image, price, rating }) {
                 title: title,
                 image: image,
                 price: price,
-                rating: rating
+                rating: rating,
+                quantity: quantity
             }
         })
     };
 
+    const increase = () => {
+        dispatch({
+            type: ACTIONS.INCREASE_PRODUCT,
+            id: id
+        });
+    }
+
+    const decrease = () => {
+        dispatch({
+            type: ACTIONS.DECREASE_PRODUCT,
+            id: id
+        });
+    }
+
     return (
-        <div className="product">
-            <div className="product__info">
-                <p>{title}</p>
-                <p className="product__price">
-                    <small>$</small>
-                    <strong>{price}</strong>
+        <div key={id} className="product">
+            <div key={id} className="product__info">
+                <p key={id}>{title}</p>
+                <p key={id} className="product__price">
+                    <small key={id}>$</small>
+                    <strong key={id}>{price}</strong>
                 </p>
-                <div className="product__rating">
+                <div key={id} className="product__rating">
                     {
                         Array(rating)
                             .fill()
                             .map(() => (
-                                <p>🌟</p>
+                                <p key={id}>🌟</p>
                             ))
                     }
                 </div>
             </div>
-            <img src={image} alt=""></img>
-            <button onClick={addToBasket}>Add To Basket</button>
+            <img key={id} src={image} alt=""></img>
+            <div key={id} className="product__basket">
+                <button key={id} onClick={addToBasket}>Add To Basket</button>
+                <Calculator key={id} quantity={quantity} increase={increase} decrease={decrease} />
+            </div>
         </div>
     )
 }

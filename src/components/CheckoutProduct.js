@@ -3,8 +3,9 @@ import { ACTIONS } from '../state/actions';
 import './CheckoutProduct.css';
 import { useStateValue } from '../state/StateProvider';
 import { useHistory } from "react-router-dom";
+import Calculator from './Calculator';
 
-function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
+function CheckoutProduct({ key, id, image, title, price, rating, quantity }) {
     const history = useHistory();
     const [{ basket }, dispatch] = useStateValue();
 
@@ -15,25 +16,46 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
         });
     }
 
+    const increase = () => {
+        dispatch({
+            type: ACTIONS.INCREASE_BASKET,
+            id: id
+        });
+    }
+
+    const decrease = () => {
+        dispatch({
+            type: ACTIONS.DECREASE_BASKET,
+            id: id
+        });
+    }
+
     return (
-        <div className="checkout-product">
-            <img className="checkout-product__image" src={image} alt />
-            <div className="checkout-product__info">
-                <p className="checkout-product__title">{title}</p>
-                <p className="checkout-product__price">
-                    <small>$</small>
-                    <strong>{price}</strong>
-                </p>
-                <div className="checkout-product__rating">
-                    {
-                        Array(rating)
-                            .fill()
-                            .map(() => (
-                                <p>🌟</p>
-                            ))
-                    }
+        <div key={key} className="checkout-product">
+            <div key={key} className="checkout-product">
+                <img key={key} className="checkout-product-image" src={image} alt />
+                <div key={key} className="checkout-product-info">
+                    <div key={key} className="checkout-product-info__top">
+                        <p key={key} className="checkout-product-title">{title}</p>
+                        <p key={key} className="checkout-product-price">
+                            <small key={key}>$</small>
+                            <strong key={key}>{price}</strong>
+                        </p>
+                        <div key={key} className="checkout-product-rating">
+                            {
+                                Array(rating)
+                                    .fill()
+                                    .map(() => (
+                                        <p key={key}>🌟</p>
+                                    ))
+                            }
+                        </div>
+                    </div>
+                    <div key={key} className="checkout-product-info__bottom">
+                        <button key={key} onClick={removeFromBasket}>Remove from Basket</button>
+                        <Calculator key={key} quantity={quantity} increase={increase} decrease={decrease} />
+                    </div>
                 </div>
-                <button onClick={removeFromBasket}>Remove from Basket</button>
             </div>
         </div>
     )

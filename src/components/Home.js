@@ -2,63 +2,69 @@ import React from 'react'
 import HomeBackground from '../images/home_background.jpg';
 import './Home.css';
 import Product from './Product';
-import ImageCleanCode from '../images/clean-code.jpg';
-import ImageSoftwareCraftsman from '../images/software_craftsman_.jpg';
-import ImageCleanCoder from '../images/clean_coder.jpg';
-import ImageSoftSkills from '../images/soft_skills.jpg';
-import ImagePragmaticProgrammer from '../images/pragmatic_programmer.jpg';
-import ImageMacbookPro from '../images/macbook_pro.jpg';
+import { useStateValue } from '../state/StateProvider';
+
+// import { getProductByIndex } from '../state/selectors';
 
 function Home() {
+    // const product1 = getProductByIndex(0);
+    const [{ products }, dispatch] = useStateValue();
+
     return (
         <div className="home">
             <img className="home__image" src={HomeBackground} alt=""></img>
             <div className="home__row">
                 <Product
-                    id="1"
-                    title="Clean Code: A Handbook of Agile Software Craftsmanship"
-                    price={11.96}
-                    rating={5}
-                    image={ImageCleanCode}
+                    id={products[0].id}
+                    title={products[0].title}
+                    price={products[0].price}
+                    rating={products[0].rating}
+                    image={products[0].image}
+                    quantity={products[0].quantity}
                 />
                 <Product
-                    id="2"
-                    title="Software Craftsman, The: Professionalism, Pragmatism, Pride (Robert C. Martin Series)"
-                    price={129.3}
-                    rating={4}
-                    image={ImageSoftwareCraftsman}
-                />
-            </div>
-            <div className="home__row">
-                <Product
-                    id="3"
-                    title="Clean Coder, The: A Code of Conduct for Professional Programmers (Robert C. Martin Series)"
-                    price={199.99}
-                    rating={3}
-                    image={ImageCleanCoder}
-                />
-                <Product
-                    id="4"
-                    title="Soft Skills: The Software Developer's Life Manual"
-                    price={98.99}
-                    rating={5}
-                    image={ImageSoftSkills}
-                />
-                <Product
-                    id="5"
-                    title="The Pragmatic Programmer: Your Journey To Mastery, 20th Anniversary Edition (2nd Edition)"
-                    price={598.99}
-                    rating={4}
-                    image={ImagePragmaticProgrammer}
+                    id={products[1].id}
+                    title={products[1].title}
+                    price={products[1].price}
+                    rating={products[1].rating}
+                    image={products[1].image}
+                    quantity={products[1].quantity}
                 />
             </div>
             <div className="home__row">
                 <Product
-                    id="6"
-                    title="New Apple MacBook Pro (16-inch, 16GB RAM, 512GB Storage) - Space Gray"
-                    price={1094.98}
-                    rating={4}
-                    image={ImageMacbookPro}
+                    id={products[2].id}
+                    title={products[2].title}
+                    price={products[2].price}
+                    rating={products[2].rating}
+                    image={products[2].image}
+                    quantity={products[2].quantity}
+                />
+                <Product
+                    id={products[3].id}
+                    title={products[3].title}
+                    price={products[3].price}
+                    rating={products[3].rating}
+                    image={products[3].image}
+                    quantity={products[3].quantity}
+                />
+                <Product
+                    id={products[4].id}
+                    title={products[4].title}
+                    price={products[4].price}
+                    rating={products[4].rating}
+                    image={products[4].image}
+                    quantity={products[4].quantity}
+                />
+            </div>
+            <div className="home__row">
+                <Product
+                    id={products[5].id}
+                    title={products[5].title}
+                    price={products[5].price}
+                    rating={products[5].rating}
+                    image={products[5].image}
+                    quantity={products[5].quantity}
                 />
             </div>
         </div>
