@@ -1,6 +1,6 @@
 import { ACTIONS } from "./actions"
 
-import ImageCleanCode from '../images/clean-code.jpg';
+import ImageCleanCode from '../images/clean_code.jpg';
 import ImageSoftwareCraftsman from '../images/software_craftsman_.jpg';
 import ImageCleanCoder from '../images/clean_coder.jpg';
 import ImageSoftSkills from '../images/soft_skills.jpg';

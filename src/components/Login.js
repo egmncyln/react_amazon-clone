@@ -12,8 +12,8 @@ function Login() {
     const login = event => {
         event.preventDefault();
         auth.signInWithEmailAndPassword(email, password)
-            .then((auth) => {
-                history.push("/");
+            .then(() => {
+                history.push("/home");
             })
             .catch((error) => {
                 alert(error.message);
@@ -23,8 +23,8 @@ function Login() {
     const register = event => {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                history.push("/");
+            .then(() => {
+                history.push("/home");
             })
             .catch((error) => {
                 alert(error.message);
@@ -52,8 +52,6 @@ function Login() {
                 <button onClick={register} className="login__register-button">Create your Amazon Account</button>
             </div>
         </div>
-
-
     )
 }
 

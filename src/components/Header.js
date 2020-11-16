@@ -18,7 +18,7 @@ function Header() {
 
     return (
         <nav className="header">
-            <Link to="/">
+            <Link to="/home">
                 <img className="header__logo" src={AmazonLogo} alt=""></img>
             </Link>
             <div className="header__search">
@@ -26,21 +26,21 @@ function Header() {
                 <SearchIcon className="header__search-icon" />
             </div>
             <div className="header__nav">
-                <Link to={!user && "/login"} className="header__link">
+                <Link to={!user && "/"} className="header__link">
                     <div onClick={login} className="header__option">
                         <span className="header__option-first">Hello, {user?.email}</span>
                         <span className="header__option-second">{user ? 'Sign Out' : 'Sign In'}</span>
                     </div>
                 </Link>
 
-                <Link to="/" className="header__link">
+                <Link to="/home" className="header__link">
                     <div className="header__option">
                         <span className="header__option-first">Returns</span>
                         <span className="header__option-second">& Orders</span>
                     </div>
                 </Link>
 
-                <Link to="/" className="header__link">
+                <Link to="/home" className="header__link">
                     <div className="header__option">
                         <span className="header__option-first">Your</span>
                         <span className="header__option-second">Prime</span>

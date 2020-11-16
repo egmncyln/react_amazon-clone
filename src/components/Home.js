@@ -4,10 +4,7 @@ import './Home.css';
 import Product from './Product';
 import { useStateValue } from '../state/StateProvider';
 
-// import { getProductByIndex } from '../state/selectors';
-
 function Home() {
-    // const product1 = getProductByIndex(0);
     const [{ products }, dispatch] = useStateValue();
 
     return (
